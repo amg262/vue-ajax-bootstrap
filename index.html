@@ -23,12 +23,13 @@
 
     <!-- fonts / icons -->
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 </head>
 <body>
 
-<div id="app" >
+<div id="app">
     <b-navbar toggleable="md" type="dark" variant="secondary" fixed="top">
         <b-navbar-brand><i class="fas fa-book-reader"></i>&nbsp;&nbsp;&nbsp;Read It</b-navbar-brand>
 
@@ -44,7 +45,8 @@
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-auto">
                 <b-nav-form @submit.prevent="searchBooks()">
-                    <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search" v-model="searchTerm"></b-form-input>
+                    <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"
+                                  v-model="searchTerm"></b-form-input>
                     <b-button size="sm" class="my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></b-button>
                 </b-nav-form>
 
@@ -60,7 +62,8 @@
         </b-row>
 
         <b-row v-else-if="books.length > 0">
-            <book v-for="book in books" :key="book.id" :book="book" :favorites="favorites" :bookmarks="bookmarks"></book>
+            <book v-for="book in books" :key="book.id" :book="book" :favorites="favorites"
+                  :bookmarks="bookmarks"></book>
 
             <!-- extra "shelf space" -->
             <b-col v-if="(books.length % 2) > 0" class="book shelf d-block d-sm-none"></b-col>
