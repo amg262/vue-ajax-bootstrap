@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promises</title>
+</head>
+<body>
+see console
+
+<script>
+
+    // function wait(ms){
+    //     return new Promise(function(resolve){
+    //
+    //         return setTimeout(resolve, ms);
+    //     });
+    // }
+
+    const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+    // const wait = (ms) => {return new Promise(resolve => {return setTimeout(resolve, ms)})};
+
+
+    console.log('start');
+    wait(3000).then(function () {
+        console.log('3 seconds passed');
+
+        // in here, 'this' refers to the Promise
+        throw new Error("I dont feel like waiting anymore.")
+        return wait(3000);
+
+    })
+        .then(() => {
+            // in here, 'this' refers to the window object or componenet in vue
+            console.log("6 seconds")
+         })
+        .then(() => wait(3000))
+        .then(() => wait(3000))
+        .then(() => console.log("12 seconds"))
+        .catch((error) => console.log("An error:", error))
+        .finally(() => console.log("done"))
+
+
+</script>
+
+</body>
+</html>
